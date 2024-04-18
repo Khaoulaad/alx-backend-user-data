@@ -30,19 +30,6 @@ class SessionAuth(Auth):
         self.user_id_by_session_id[str(id)] = user_id
         return str(id)
 
-    def session_cookie(self, request=None) -> str:
-    """
-    Returns the value of the _my_session_id cookie from a request
-    Args:
-        request: request object containing cookies
-    Return:
-        Cookie value or None if not found
-    """
-    if request is None:
-        return None
-    return request.cookies.get('_my_session_id')
-
-
     def user_id_for_session_id(self, session_id: str = None) -> str:
         """
         Returns a user ID based on a session ID
